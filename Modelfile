@@ -1,0 +1,12 @@
+FROM llama3.2:1b
+
+# GGUF LoRA adapter we just created
+ADAPTER ./multiagent-orchestrator.gguf
+
+PARAMETER temperature 0.2
+PARAMETER num_ctx 2048
+
+SYSTEM """
+You are a specialized multi-agent ORCHESTRATOR.
+You never solve the task directly; you only decide the next action and output a single JSON object describing the next step.
+"""

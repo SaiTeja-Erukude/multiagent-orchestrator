@@ -1,0 +1,4484 @@
+[
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "researcher",
+          "role": "Collects and summarizes information from the web and internal docs.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "coder",
+          "role": "Writes and fixes code, runs tests, and explains changes.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews outputs from other agents for quality, correctness, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Write a short technical blog post explaining what multi-agent LLM systems are.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 8,
+      "context": {
+        "user_preferences": {
+          "tone": "friendly",
+          "audience": "intermediate developers"
+        }
+      },
+      "history": []
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "researcher",
+      "arguments": {
+        "query": "Explain what multi-agent LLM systems are, list 3–4 key benefits, and mention common frameworks."
+      },
+      "final_answer": null,
+      "reason": "We need background information before planning the blog post."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "researcher",
+          "role": "Collects and summarizes information from the web and internal docs.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "coder",
+          "role": "Writes and fixes code, runs tests, and explains changes.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews outputs from other agents for quality, correctness, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Write a short technical blog post explaining what multi-agent LLM systems are.",
+      "status": "in_progress",
+      "step": 2,
+      "max_steps": 8,
+      "context": {
+        "user_preferences": {
+          "tone": "friendly",
+          "audience": "intermediate developers"
+        }
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "researcher",
+          "arguments": {
+            "query": "Explain what multi-agent LLM systems are, list 3–4 key benefits, and mention common frameworks."
+          }
+        },
+        {
+          "type": "result",
+          "from": "researcher",
+          "content": "A summary of multi-agent LLM systems with benefits and mentions of several frameworks."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "coder",
+      "arguments": {
+        "task_description": "Draft an outline for a short technical blog post about multi-agent LLM systems using the researcher summary.",
+        "sections": [
+          "Introduction",
+          "What are multi-agent LLM systems?",
+          "Key benefits",
+          "Example architectures",
+          "Conclusion"
+        ]
+      },
+      "final_answer": null,
+      "reason": "We now have background info; the next step is to generate a clear outline."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "researcher",
+          "role": "Collects and summarizes information from the web and internal docs.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "coder",
+          "role": "Writes and fixes code, runs tests, and explains changes.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews outputs from other agents for quality, correctness, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Write a short technical blog post explaining what multi-agent LLM systems are.",
+      "status": "in_progress",
+      "step": 4,
+      "max_steps": 8,
+      "context": {
+        "user_preferences": {
+          "tone": "friendly",
+          "audience": "intermediate developers"
+        }
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "researcher",
+          "arguments": {
+            "query": "Explain what multi-agent LLM systems are, list 3–4 key benefits, and mention common frameworks."
+          }
+        },
+        {
+          "type": "result",
+          "from": "researcher",
+          "content": "Background summary about multi-agent LLM systems."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "coder",
+          "arguments": {
+            "task_description": "Draft an outline for a short blog post about multi-agent LLM systems.",
+            "sections": [
+              "Introduction",
+              "What are multi-agent LLM systems?",
+              "Key benefits",
+              "Example architectures",
+              "Conclusion"
+            ]
+          }
+        },
+        {
+          "type": "result",
+          "from": "coder",
+          "content": "A 5-section outline for the blog post."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "critic",
+      "arguments": {
+        "review_target": "coder",
+        "criteria": [
+          "clarity",
+          "logical flow",
+          "technical accuracy"
+        ],
+        "focus": "Check whether the outline is coherent and suitable for intermediate developers."
+      },
+      "final_answer": null,
+      "reason": "Before writing the full post, we should have the outline reviewed for quality."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "researcher",
+          "role": "Collects and summarizes information from the web and internal docs.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "coder",
+          "role": "Writes and fixes code, runs tests, and explains changes.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews outputs from other agents for quality, correctness, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Write a short technical blog post explaining what multi-agent LLM systems are.",
+      "status": "in_progress",
+      "step": 7,
+      "max_steps": 8,
+      "context": {
+        "user_preferences": {
+          "tone": "friendly",
+          "audience": "intermediate developers"
+        }
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "researcher",
+          "arguments": {
+            "query": "Explain what multi-agent LLM systems are, list 3–4 key benefits, and mention common frameworks."
+          }
+        },
+        {
+          "type": "result",
+          "from": "researcher",
+          "content": "Background summary about multi-agent LLM systems."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "coder",
+          "arguments": {
+            "task_description": "Draft a full blog post about multi-agent LLM systems based on the outline and background summary.",
+            "length": "700-900 words"
+          }
+        },
+        {
+          "type": "result",
+          "from": "coder",
+          "content": "Draft blog post text."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "critic",
+          "arguments": {
+            "review_target": "coder",
+            "criteria": [
+              "clarity",
+              "technical accuracy",
+              "length"
+            ],
+            "focus": "Identify high-level issues and suggest edits, not line-by-line corrections."
+          }
+        },
+        {
+          "type": "result",
+          "from": "critic",
+          "content": "Short review plus suggested improvements to introduction and conclusion."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "finish",
+      "target": null,
+      "arguments": {},
+      "final_answer": "Return the final drafted blog post from the coder along with a short note that it has been reviewed by the critic and is ready for user review.",
+      "reason": "All necessary subtasks (research, drafting, review) have been completed and the artifact is ready to hand back to the user."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "data_analyst",
+          "role": "Runs data analysis using Python and SQL, and explains results.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "reporter",
+          "role": "Creates human-readable summaries and reports from structured results.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews reports for completeness and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Analyze churn data and produce a short summary for the product team.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 6,
+      "context": {
+        "user_preferences": {
+          "audience": "non-technical product managers"
+        }
+      },
+      "history": []
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "data_analyst",
+      "arguments": {
+        "analysis_goal": "Analyze user churn by plan type over the last 3 months and identify top 3 risk signals.",
+        "inputs": {
+          "table": "user_events",
+          "time_window_days": 90
+        }
+      },
+      "final_answer": null,
+      "reason": "We first need quantitative churn analysis before reporting to the product team."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "data_analyst",
+          "role": "Runs data analysis using Python and SQL, and explains results.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "reporter",
+          "role": "Creates human-readable summaries and reports from structured results.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews reports for completeness and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Analyze churn data and produce a short summary for the product team.",
+      "status": "in_progress",
+      "step": 3,
+      "max_steps": 6,
+      "context": {
+        "user_preferences": {
+          "audience": "non-technical product managers"
+        }
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "data_analyst",
+          "arguments": {
+            "analysis_goal": "Analyze user churn by plan type over the last 3 months and identify top 3 risk signals.",
+            "inputs": {
+              "table": "user_events",
+              "time_window_days": 90
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "data_analyst",
+          "content": "Structured churn metrics by plan type, including top factors correlated with churn."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "reporter",
+      "arguments": {
+        "data_source": "data_analyst",
+        "instructions": "Write a concise summary (150-250 words) explaining churn patterns and top 3 risk signals for non-technical product managers."
+      },
+      "final_answer": null,
+      "reason": "We now have metrics and need them converted into a human-readable summary."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "data_analyst",
+          "role": "Runs data analysis using Python and SQL, and explains results.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "reporter",
+          "role": "Creates human-readable summaries and reports from structured results.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews reports for completeness and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Analyze churn data and produce a short summary for the product team.",
+      "status": "in_progress",
+      "step": 5,
+      "max_steps": 6,
+      "context": {
+        "user_preferences": {
+          "audience": "non-technical product managers"
+        }
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "data_analyst",
+          "arguments": {
+            "analysis_goal": "Analyze user churn by plan type over the last 3 months and identify top 3 risk signals.",
+            "inputs": {
+              "table": "user_events",
+              "time_window_days": 90
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "data_analyst",
+          "content": "Structured churn metrics by plan type, including top factors correlated with churn."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "reporter",
+          "arguments": {
+            "data_source": "data_analyst",
+            "instructions": "Write a concise summary (150-250 words) explaining churn patterns and top 3 risk signals for non-technical product managers."
+          }
+        },
+        {
+          "type": "result",
+          "from": "reporter",
+          "content": "Drafted churn summary for the product team."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "critic",
+      "arguments": {
+        "review_target": "reporter",
+        "criteria": [
+          "clarity",
+          "length",
+          "actionability"
+        ],
+        "focus": "Ensure the summary is understandable for non-technical stakeholders and highlights next steps."
+      },
+      "final_answer": null,
+      "reason": "We should review the draft for clarity and actionability before finishing."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "researcher",
+          "role": "Looks up information using the web_search tool and internal docs.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "coder",
+          "role": "Writes and debugs code using the code_executor tool.",
+          "cost": "high",
+          "latency": "high"
+        }
+      ]
+    },
+    "state": {
+      "task": "Fix a failing unit test in a Python project using error logs.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 7,
+      "context": {
+        "repo": "analytics-service",
+        "language": "python"
+      },
+      "history": []
+    },
+    "target_action": {
+      "action": "call_tool",
+      "target": "read_file",
+      "arguments": {
+        "path": "tests/test_data_loader.py"
+      },
+      "final_answer": null,
+      "reason": "We first need to inspect the failing test file before deciding which agent to call."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "researcher",
+          "role": "Looks up information using the web_search tool and internal docs.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "coder",
+          "role": "Writes and debugs code using the code_executor tool.",
+          "cost": "high",
+          "latency": "high"
+        }
+      ]
+    },
+    "state": {
+      "task": "Fix a failing unit test in a Python project using error logs.",
+      "status": "in_progress",
+      "step": 2,
+      "max_steps": 7,
+      "context": {
+        "repo": "analytics-service",
+        "language": "python"
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "read_file",
+          "arguments": {
+            "path": "tests/test_data_loader.py"
+          }
+        },
+        {
+          "type": "result",
+          "from": "read_file",
+          "content": "Contents of test_data_loader.py including the failing test."
+        },
+        {
+          "type": "result",
+          "from": "tool",
+          "content": "Error log: AssertionError in test_load_missing_values."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "coder",
+      "arguments": {
+        "task_description": "Investigate and fix the failing test in tests/test_data_loader.py using the provided error log.",
+        "inputs": {
+          "file": "tests/test_data_loader.py",
+          "error_log": "AssertionError in test_load_missing_values"
+        },
+        "constraints": {
+          "keep_existing_public_API": true
+        }
+      },
+      "final_answer": null,
+      "reason": "We now have enough context and should let the coder agent diagnose and fix the issue."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "assistant",
+          "role": "General-purpose agent that answers questions and summarizes information.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Clarify ambiguous user requirements before starting work.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 4,
+      "context": {},
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "I want a dashboard, you know, with all the important stuff for the team."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "ask_user",
+      "target": "user",
+      "arguments": {
+        "question": "Could you clarify what 'important stuff' means for your team? For example, are you interested in metrics like daily active users, revenue, error rates, or something else?"
+      },
+      "final_answer": null,
+      "reason": "The user requirements are vague; we should ask a clarifying question before involving any agents or tools."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "researcher",
+          "role": "Collects information from web/docs using tools.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "coder",
+          "role": "Implements small scripts and utilities.",
+          "cost": "high",
+          "latency": "high"
+        }
+      ]
+    },
+    "state": {
+      "task": "Generate a simple daily report email about website performance.",
+      "status": "in_progress",
+      "step": 5,
+      "max_steps": 6,
+      "context": {
+        "audience": "engineering-manager"
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "researcher",
+          "arguments": {
+            "query": "Key metrics for daily website performance reports for engineering managers."
+          }
+        },
+        {
+          "type": "result",
+          "from": "researcher",
+          "content": "Common metrics: page views, unique visitors, error rate, average latency."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "coder",
+          "arguments": {
+            "task_description": "Draft a daily email template summarizing page views, unique visitors, error rate, and latency.",
+            "constraints": {
+              "max_length_words": 200
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "coder",
+          "content": "Draft email template including the four metrics and brief commentary."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "finish",
+      "target": null,
+      "arguments": {},
+      "final_answer": "Return the drafted daily report email template from the coder agent as the final output for the user.",
+      "reason": "The research and implementation steps are complete and the user requested only a simple daily report template."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "transcriber",
+          "role": "Cleans and segments raw meeting transcript text.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "summarizer",
+          "role": "Creates structured summaries, decisions, and action items from transcripts.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "critic",
+          "role": "Checks summaries for completeness and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Summarize the latest sprint review meeting and extract decisions and action items.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 6,
+      "context": {
+        "audience": "engineering_team"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "Raw transcript text from the sprint review meeting."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "transcriber",
+      "arguments": {
+        "transcript_source": "user",
+        "instructions": "Clean and segment the sprint review transcript into speaker turns and topic blocks."
+      },
+      "final_answer": null,
+      "reason": "We should first clean and segment the raw transcript before generating any summaries."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "transcriber",
+          "role": "Cleans and segments raw meeting transcript text.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "summarizer",
+          "role": "Creates structured summaries, decisions, and action items from transcripts.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "critic",
+          "role": "Checks summaries for completeness and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Summarize the latest sprint review meeting and extract decisions and action items.",
+      "status": "in_progress",
+      "step": 3,
+      "max_steps": 6,
+      "context": {
+        "audience": "engineering_team"
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "transcriber",
+          "arguments": {
+            "transcript_source": "user",
+            "instructions": "Clean and segment the sprint review transcript into speaker turns and topic blocks."
+          }
+        },
+        {
+          "type": "result",
+          "from": "transcriber",
+          "content": "Clean segmented transcript grouped by topic."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "summarizer",
+      "arguments": {
+        "transcript_source": "transcriber",
+        "output_format": {
+          "sections": [
+            "summary",
+            "decisions",
+            "action_items"
+          ],
+          "action_item_fields": [
+            "owner",
+            "description",
+            "due_date_hint"
+          ]
+        }
+      },
+      "final_answer": null,
+      "reason": "We now have a clean transcript and should generate a structured summary and action list."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "transcriber",
+          "role": "Cleans and segments raw meeting transcript text.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "summarizer",
+          "role": "Creates structured summaries, decisions, and action items from transcripts.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "critic",
+          "role": "Checks summaries for completeness and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Summarize the latest sprint review meeting and extract decisions and action items.",
+      "status": "in_progress",
+      "step": 5,
+      "max_steps": 6,
+      "context": {
+        "audience": "engineering_team"
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "transcriber",
+          "arguments": {
+            "transcript_source": "user",
+            "instructions": "Clean and segment the sprint review transcript into speaker turns and topic blocks."
+          }
+        },
+        {
+          "type": "result",
+          "from": "transcriber",
+          "content": "Clean segmented transcript grouped by topic."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "summarizer",
+          "arguments": {
+            "transcript_source": "transcriber",
+            "output_format": {
+              "sections": [
+                "summary",
+                "decisions",
+                "action_items"
+              ],
+              "action_item_fields": [
+                "owner",
+                "description",
+                "due_date_hint"
+              ]
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "summarizer",
+          "content": "Draft meeting summary including 3 decisions and several action items."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "critic",
+      "arguments": {
+        "review_target": "summarizer",
+        "criteria": [
+          "completeness",
+          "clarity",
+          "actionability"
+        ],
+        "focus": "Ensure all important decisions and owners are captured."
+      },
+      "final_answer": null,
+      "reason": "We should have the critic review the summary before returning it to the team."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "transcriber",
+          "role": "Cleans and segments raw meeting transcript text.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "summarizer",
+          "role": "Creates structured summaries, decisions, and action items from transcripts.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "critic",
+          "role": "Checks summaries for completeness and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Summarize the latest sprint review meeting and extract decisions and action items.",
+      "status": "in_progress",
+      "step": 6,
+      "max_steps": 6,
+      "context": {
+        "audience": "engineering_team"
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "transcriber",
+          "arguments": {
+            "transcript_source": "user",
+            "instructions": "Clean and segment the sprint review transcript into speaker turns and topic blocks."
+          }
+        },
+        {
+          "type": "result",
+          "from": "transcriber",
+          "content": "Clean segmented transcript grouped by topic."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "summarizer",
+          "arguments": {
+            "transcript_source": "transcriber",
+            "output_format": {
+              "sections": [
+                "summary",
+                "decisions",
+                "action_items"
+              ],
+              "action_item_fields": [
+                "owner",
+                "description",
+                "due_date_hint"
+              ]
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "summarizer",
+          "content": "Draft meeting summary including 3 decisions and several action items."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "critic",
+          "arguments": {
+            "review_target": "summarizer",
+            "criteria": [
+              "completeness",
+              "clarity",
+              "actionability"
+            ],
+            "focus": "Ensure all important decisions and owners are captured."
+          }
+        },
+        {
+          "type": "result",
+          "from": "critic",
+          "content": "Review confirming the summary is complete and understandable."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "finish",
+      "target": null,
+      "arguments": {},
+      "final_answer": "Return the reviewed sprint review summary and action items to the user as the final result.",
+      "reason": "Cleaning, summarization, and review are complete, and the output is ready for the team."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "telemetry_analyst",
+          "role": "Reads metrics and logs to identify performance issues.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "infra_engineer",
+          "role": "Proposes infrastructure changes and mitigations.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "status_reporter",
+          "role": "Writes short incident updates for stakeholders.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Investigate elevated API latency for the checkout service.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 7,
+      "context": {
+        "service": "checkout-api",
+        "environment": "production"
+      },
+      "history": []
+    },
+    "target_action": {
+      "action": "call_tool",
+      "target": "get_metrics",
+      "arguments": {
+        "service": "checkout-api",
+        "metric": "p95_latency_ms",
+        "time_window_minutes": 60
+      },
+      "final_answer": null,
+      "reason": "We should first confirm and quantify the latency increase using recent metrics."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "researcher",
+          "role": "Collects requirements and existing docs from internal sources.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "doc_writer",
+          "role": "Produces user-facing documentation from structured notes.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "editor",
+          "role": "Edits docs for tone, grammar, and consistency.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Create onboarding documentation for a new internal analytics dashboard.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 7,
+      "context": {
+        "audience": "new_engineers"
+      },
+      "history": []
+    },
+    "target_action": {
+      "action": "call_tool",
+      "target": "search_docs",
+      "arguments": {
+        "query": "analytics dashboard existing documentation, metrics definitions, permissions",
+        "max_results": 10
+      },
+      "final_answer": null,
+      "reason": "We should gather existing docs before asking agents to summarize and write new onboarding content."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "planner",
+          "role": "Breaks large projects into milestones and tasks.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "risk_analyst",
+          "role": "Identifies risks and mitigation strategies.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "pm_writer",
+          "role": "Writes stakeholder-friendly plans and updates.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Plan a Q3 launch project for a new recommendations feature.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 8,
+      "context": {
+        "quarter": "Q3",
+        "product_area": "recommendations"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We want to launch a first version of personalized recommendations by the end of Q3."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "ask_user",
+      "target": "user",
+      "arguments": {
+        "question": "Do you have a fixed launch date in Q3 and any hard constraints such as must support mobile first or avoid backend schema changes?"
+      },
+      "final_answer": null,
+      "reason": "We need clearer constraints and launch timing before we generate milestones."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "planner",
+          "role": "Breaks large projects into milestones and tasks.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "risk_analyst",
+          "role": "Identifies risks and mitigation strategies.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "pm_writer",
+          "role": "Writes stakeholder-friendly plans and updates.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Plan a Q3 launch project for a new recommendations feature.",
+      "status": "in_progress",
+      "step": 4,
+      "max_steps": 8,
+      "context": {
+        "quarter": "Q3",
+        "product_area": "recommendations"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We want to launch a first version of personalized recommendations by the end of Q3."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "ask_user",
+          "target": "user",
+          "arguments": {
+            "question": "Do you have a fixed launch date in Q3 and any hard constraints such as must support mobile first or avoid backend schema changes?"
+          }
+        },
+        {
+          "type": "result",
+          "from": "user",
+          "content": "Launch date is September 25, must support web and mobile, backend schema changes are allowed."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "planner",
+      "arguments": {
+        "planning_goal": "Create high-level milestones for the Q3 recommendations launch.",
+        "constraints": {
+          "launch_date": "2025-09-25",
+          "must_support": [
+            "web",
+            "mobile"
+          ],
+          "backend_schema_changes_allowed": true
+        }
+      },
+      "final_answer": null,
+      "reason": "Constraints are now clear, so the planner agent should generate milestones."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "researcher",
+          "role": "Gathers best practices and reference architectures from internal and external sources.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "architect",
+          "role": "Proposes system architectures, API boundaries, and migration plans.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "doc_writer",
+          "role": "Turns structured notes into clear, user-facing design docs.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews technical documents for clarity, risk coverage, and alignment with requirements.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Draft a technical design doc for migrating the billing service from a monolith to microservices.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 8,
+      "context": {
+        "audience": "senior_engineers",
+        "service": "billing"
+      },
+      "history": []
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "researcher",
+      "arguments": {
+        "query": "Collect common patterns, risks, and rollout strategies for migrating billing systems from monoliths to microservices. Focus on payment flows and data consistency."
+      },
+      "final_answer": null,
+      "reason": "We need background information and reference patterns before proposing a concrete architecture."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "researcher",
+          "role": "Gathers best practices and reference architectures from internal and external sources.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "architect",
+          "role": "Proposes system architectures, API boundaries, and migration plans.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "doc_writer",
+          "role": "Turns structured notes into clear, user-facing design docs.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews technical documents for clarity, risk coverage, and alignment with requirements.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Draft a technical design doc for migrating the billing service from a monolith to microservices.",
+      "status": "in_progress",
+      "step": 3,
+      "max_steps": 8,
+      "context": {
+        "audience": "senior_engineers",
+        "service": "billing"
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "researcher",
+          "arguments": {
+            "query": "Collect common patterns, risks, and rollout strategies for migrating billing systems from monoliths to microservices. Focus on payment flows and data consistency."
+          }
+        },
+        {
+          "type": "result",
+          "from": "researcher",
+          "content": "Summary of migration best practices, common pitfalls, and example reference architectures for billing services."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "architect",
+      "arguments": {
+        "planning_goal": "Propose a high-level microservices architecture and migration plan for the billing service.",
+        "inputs": {
+          "existing_system": "billing-monolith",
+          "constraints": {
+            "zero_downtime_required": true,
+            "regulatory": [
+              "PCI-DSS"
+            ]
+          }
+        }
+      },
+      "final_answer": null,
+      "reason": "With background material collected, the architect should propose concrete components and migration phases."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "researcher",
+          "role": "Gathers best practices and reference architectures from internal and external sources.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "architect",
+          "role": "Proposes system architectures, API boundaries, and migration plans.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "doc_writer",
+          "role": "Turns structured notes into clear, user-facing design docs.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews technical documents for clarity, risk coverage, and alignment with requirements.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Draft a technical design doc for migrating the billing service from a monolith to microservices.",
+      "status": "in_progress",
+      "step": 7,
+      "max_steps": 8,
+      "context": {
+        "audience": "senior_engineers",
+        "service": "billing"
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "researcher",
+          "arguments": {
+            "query": "Collect common patterns, risks, and rollout strategies for migrating billing systems from monoliths to microservices. Focus on payment flows and data consistency."
+          }
+        },
+        {
+          "type": "result",
+          "from": "researcher",
+          "content": "Summary of migration best practices, common pitfalls, and example reference architectures for billing services."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "architect",
+          "arguments": {
+            "planning_goal": "Propose a high-level microservices architecture and migration plan for the billing service.",
+            "inputs": {
+              "existing_system": "billing-monolith",
+              "constraints": {
+                "zero_downtime_required": true,
+                "regulatory": [
+                  "PCI-DSS"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "architect",
+          "content": "Outline of candidate microservices, data ownership, and phased migration plan for the billing domain."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "doc_writer",
+          "arguments": {
+            "task_description": "Draft a full design document for the billing migration using the architect's outline and researcher notes.",
+            "length": "5-7 pages equivalent",
+            "audience": "senior_engineers"
+          }
+        },
+        {
+          "type": "result",
+          "from": "doc_writer",
+          "content": "Drafted design doc covering architecture, data model, migration plan, and risks."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "critic",
+          "arguments": {
+            "review_target": "doc_writer",
+            "criteria": [
+              "clarity",
+              "risk_coverage",
+              "alignment_with_constraints"
+            ],
+            "focus": "Highlight any missing risks, rollback strategies, or unclear sections."
+          }
+        },
+        {
+          "type": "result",
+          "from": "critic",
+          "content": "Review with minor suggestions and confirmation that the design doc is ready for stakeholder feedback."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "finish",
+      "target": null,
+      "arguments": {},
+      "final_answer": "Return the final billing migration design document from the doc_writer along with a note that it has been reviewed by the critic and is ready for review by senior engineers.",
+      "reason": "Research, architecture proposal, drafting, and review are complete, so the artifact is ready for handoff."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "support_reader",
+          "role": "Reads and clusters support tickets into themes.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "faq_writer",
+          "role": "Turns clustered issues into clear FAQ entries.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Checks FAQs for coverage, clarity, and tone.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Generate an FAQ from recent support tickets about billing issues.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 7,
+      "context": {
+        "audience": "end_users",
+        "product_area": "billing"
+      },
+      "history": []
+    },
+    "target_action": {
+      "action": "call_tool",
+      "target": "search_tickets",
+      "arguments": {
+        "queue": "support-billing",
+        "time_window_days": 30,
+        "max_results": 200
+      },
+      "final_answer": null,
+      "reason": "We should first collect recent billing-related tickets before clustering them into FAQ entries."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "support_reader",
+          "role": "Reads and clusters support tickets into themes.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "faq_writer",
+          "role": "Turns clustered issues into clear FAQ entries.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Checks FAQs for coverage, clarity, and tone.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Generate an FAQ from recent support tickets about billing issues.",
+      "status": "in_progress",
+      "step": 3,
+      "max_steps": 7,
+      "context": {
+        "audience": "end_users",
+        "product_area": "billing"
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "search_tickets",
+          "arguments": {
+            "queue": "support-billing",
+            "time_window_days": 30,
+            "max_results": 200
+          }
+        },
+        {
+          "type": "result",
+          "from": "search_tickets",
+          "content": "List of recent billing-related tickets with subjects, bodies, and tags."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "support_reader",
+      "arguments": {
+        "tickets_source": "search_tickets",
+        "instructions": "Cluster tickets into 8-12 groups of similar questions and extract a canonical question and short answer for each group."
+      },
+      "final_answer": null,
+      "reason": "We now have raw tickets and need structured question/answer pairs to build an FAQ."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "support_reader",
+          "role": "Reads and clusters support tickets into themes.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "faq_writer",
+          "role": "Turns clustered issues into clear FAQ entries.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Checks FAQs for coverage, clarity, and tone.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Generate an FAQ from recent support tickets about billing issues.",
+      "status": "in_progress",
+      "step": 7,
+      "max_steps": 7,
+      "context": {
+        "audience": "end_users",
+        "product_area": "billing"
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "search_tickets",
+          "arguments": {
+            "queue": "support-billing",
+            "time_window_days": 30,
+            "max_results": 200
+          }
+        },
+        {
+          "type": "result",
+          "from": "search_tickets",
+          "content": "List of recent billing-related tickets with subjects, bodies, and tags."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "support_reader",
+          "arguments": {
+            "tickets_source": "search_tickets",
+            "instructions": "Cluster tickets into 8-12 groups of similar questions and extract a canonical question and short answer for each group."
+          }
+        },
+        {
+          "type": "result",
+          "from": "support_reader",
+          "content": "Clusters of tickets with representative questions and draft answers for each billing theme."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "faq_writer",
+          "arguments": {
+            "faq_items_source": "support_reader",
+            "tone": "reassuring",
+            "audience": "end_users"
+          }
+        },
+        {
+          "type": "result",
+          "from": "faq_writer",
+          "content": "Draft FAQ entries with user-friendly questions, concise answers, and links to detailed docs."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "critic",
+          "arguments": {
+            "review_target": "faq_writer",
+            "criteria": [
+              "clarity",
+              "coverage",
+              "tone"
+            ],
+            "focus": "Ensure that the FAQ covers the most common issues and avoids internal jargon."
+          }
+        },
+        {
+          "type": "result",
+          "from": "critic",
+          "content": "Short review noting that the FAQ covers the top ticket themes with minor wording suggestions."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "finish",
+      "target": null,
+      "arguments": {},
+      "final_answer": "Return the final FAQ entries from the faq_writer along with a note that they were reviewed by the critic for clarity and coverage.",
+      "reason": "Ticket collection, clustering, drafting, and review are complete, so the FAQ is ready for publishing."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "planner",
+          "role": "Designs meeting structures, agendas, and time allocations.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "facilitator",
+          "role": "Turns plans into user-facing agendas and communication.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews agendas for realism, clarity, and alignment with goals.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Create an agenda template for a weekly KPI review meeting.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 6,
+      "context": {
+        "audience": "leadership_team"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We want a weekly KPI meeting to keep leadership aligned but I am not sure what to include."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "ask_user",
+      "target": "user",
+      "arguments": {
+        "question": "Which KPIs should this meeting focus on (for example revenue, active users, churn, uptime), and how long should the meeting be?"
+      },
+      "final_answer": null,
+      "reason": "The user requirements for KPIs and meeting length are vague; we should clarify them before planning the agenda."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "planner",
+          "role": "Designs meeting structures, agendas, and time allocations.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "facilitator",
+          "role": "Turns plans into user-facing agendas and communication.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews agendas for realism, clarity, and alignment with goals.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Create an agenda template for a weekly KPI review meeting.",
+      "status": "in_progress",
+      "step": 3,
+      "max_steps": 6,
+      "context": {
+        "audience": "leadership_team"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We want a weekly KPI meeting to keep leadership aligned but I am not sure what to include."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "ask_user",
+          "target": "user",
+          "arguments": {
+            "question": "Which KPIs should this meeting focus on (for example revenue, active users, churn, uptime), and how long should the meeting be?"
+          }
+        },
+        {
+          "type": "result",
+          "from": "user",
+          "content": "Focus on revenue, active users, churn, and uptime. Total meeting time should be 45 minutes."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "planner",
+      "arguments": {
+        "planning_goal": "Propose a realistic recurring agenda for a 45-minute weekly KPI review.",
+        "constraints": {
+          "meeting_length_minutes": 45,
+          "kpis": [
+            "revenue",
+            "active_users",
+            "churn",
+            "uptime"
+          ],
+          "participants": [
+            "product",
+            "engineering",
+            "go_to_market"
+          ]
+        }
+      },
+      "final_answer": null,
+      "reason": "We now know which KPIs and timebox to optimize for, so the planner can design an appropriate agenda."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "planner",
+          "role": "Designs meeting structures, agendas, and time allocations.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "facilitator",
+          "role": "Turns plans into user-facing agendas and communication.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews agendas for realism, clarity, and alignment with goals.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Create an agenda template for a weekly KPI review meeting.",
+      "status": "in_progress",
+      "step": 6,
+      "max_steps": 6,
+      "context": {
+        "audience": "leadership_team"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We want a weekly KPI meeting to keep leadership aligned but I am not sure what to include."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "ask_user",
+          "target": "user",
+          "arguments": {
+            "question": "Which KPIs should this meeting focus on (for example revenue, active users, churn, uptime), and how long should the meeting be?"
+          }
+        },
+        {
+          "type": "result",
+          "from": "user",
+          "content": "Focus on revenue, active users, churn, and uptime. Total meeting time should be 45 minutes."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "planner",
+          "arguments": {
+            "planning_goal": "Propose a realistic recurring agenda for a 45-minute weekly KPI review.",
+            "constraints": {
+              "meeting_length_minutes": 45,
+              "kpis": [
+                "revenue",
+                "active_users",
+                "churn",
+                "uptime"
+              ],
+              "participants": [
+                "product",
+                "engineering",
+                "go_to_market"
+              ]
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "planner",
+          "content": "Structured agenda with timeboxed sections for each KPI, discussion, and action item review."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "facilitator",
+          "arguments": {
+            "task_description": "Convert the agenda into an email-friendly outline and a list of expectations for attendees.",
+            "audience": "leadership_team"
+          }
+        },
+        {
+          "type": "result",
+          "from": "facilitator",
+          "content": "Draft agenda email including topic order, owners, and pre-reading expectations."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "critic",
+          "arguments": {
+            "review_target": "facilitator",
+            "criteria": [
+              "clarity",
+              "realism",
+              "expectation_setting"
+            ],
+            "focus": "Identify anything that could make the meeting run over time or confuse attendees."
+          }
+        },
+        {
+          "type": "result",
+          "from": "critic",
+          "content": "Review confirming the agenda is realistic and understandable with a couple of minor wording tweaks."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "finish",
+      "target": null,
+      "arguments": {},
+      "final_answer": "Return the final agenda email from the facilitator along with a note that it has been reviewed by the critic and is ready to send to leadership.",
+      "reason": "We clarified requirements, designed an agenda, and reviewed it for clarity and realism."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "log_reader",
+          "role": "Inspects logs and summarizes likely causes of failures.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "data_engineer",
+          "role": "Proposes and explains fixes for data pipelines and ETL jobs.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Checks proposed fixes for safety and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Diagnose and propose a fix for a failing nightly ETL job.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 6,
+      "context": {
+        "pipeline_name": "nightly_orders_etl",
+        "environment": "production"
+      },
+      "history": []
+    },
+    "target_action": {
+      "action": "call_tool",
+      "target": "get_job_status",
+      "arguments": {
+        "job_name": "nightly_orders_etl",
+        "time_window_hours": 2
+      },
+      "final_answer": null,
+      "reason": "We should first verify the failure and capture the latest run metadata from the scheduler."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "log_reader",
+          "role": "Inspects logs and summarizes likely causes of failures.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "data_engineer",
+          "role": "Proposes and explains fixes for data pipelines and ETL jobs.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Checks proposed fixes for safety and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Diagnose and propose a fix for a failing nightly ETL job.",
+      "status": "in_progress",
+      "step": 3,
+      "max_steps": 6,
+      "context": {
+        "pipeline_name": "nightly_orders_etl",
+        "environment": "production"
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_job_status",
+          "arguments": {
+            "job_name": "nightly_orders_etl",
+            "time_window_hours": 2
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_job_status",
+          "content": "Recent job run statuses showing the latest run failed with exit code 1."
+        },
+        {
+          "type": "result",
+          "from": "tool",
+          "content": "Error trace from scheduler logs: NullPointerException in transform step load_orders_to_warehouse."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "log_reader",
+      "arguments": {
+        "task_description": "Summarize the likely root cause and point to which part of the ETL should be inspected first.",
+        "error_log_source": "tool",
+        "job_name": "nightly_orders_etl"
+      },
+      "final_answer": null,
+      "reason": "We now have a failing run and stack trace; the log_reader should condense this into a clear suspected root cause."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "log_reader",
+          "role": "Inspects logs and summarizes likely causes of failures.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "data_engineer",
+          "role": "Proposes and explains fixes for data pipelines and ETL jobs.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Checks proposed fixes for safety and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Diagnose and propose a fix for a failing nightly ETL job.",
+      "status": "in_progress",
+      "step": 6,
+      "max_steps": 6,
+      "context": {
+        "pipeline_name": "nightly_orders_etl",
+        "environment": "production"
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_job_status",
+          "arguments": {
+            "job_name": "nightly_orders_etl",
+            "time_window_hours": 2
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_job_status",
+          "content": "Recent job run statuses showing the latest run failed with exit code 1."
+        },
+        {
+          "type": "result",
+          "from": "tool",
+          "content": "Error trace from scheduler logs: NullPointerException in transform step load_orders_to_warehouse."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "log_reader",
+          "arguments": {
+            "task_description": "Summarize the likely root cause and point to which part of the ETL should be inspected first.",
+            "error_log_source": "tool",
+            "job_name": "nightly_orders_etl"
+          }
+        },
+        {
+          "type": "result",
+          "from": "log_reader",
+          "content": "Suspected null in source column customer_id during transformation; suggests checking null-handling logic in load_orders_to_warehouse."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "data_engineer",
+          "arguments": {
+            "task_description": "Propose a safe fix and rollback plan for the suspected null-handling issue in the nightly_orders_etl job.",
+            "inputs": {
+              "suspected_root_cause": "Null customer_id during transformation",
+              "environment": "production"
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "data_engineer",
+          "content": "Step-by-step fix including adding null guards, backfilling affected partitions, and running the job in dry-run mode first."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "critic",
+          "arguments": {
+            "review_target": "data_engineer",
+            "criteria": [
+              "safety",
+              "clarity",
+              "rollback_plan"
+            ],
+            "focus": "Ensure the remediation plan is safe for production and clearly ordered."
+          }
+        },
+        {
+          "type": "result",
+          "from": "critic",
+          "content": "Review confirming the plan is safe and well ordered, with a minor note to test on a small subset first."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "finish",
+      "target": null,
+      "arguments": {},
+      "final_answer": "Return the remediation plan from the data_engineer along with the critic's confirmation that it is safe to execute in production with a small test run first.",
+      "reason": "We used metrics and logs to identify a root cause, proposed a fix, and had it reviewed for safety."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "log_analyst",
+          "role": "Analyzes security logs for suspicious patterns and clusters events.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "incident_coordinator",
+          "role": "Proposes incident response steps and owner assignments.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "status_reporter",
+          "role": "Writes short status updates for stakeholders during incidents.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews communication and plans for clarity and completeness.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Help triage a potential security incident from unusual login patterns.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 7,
+      "context": {
+        "service": "auth-service",
+        "environment": "production"
+      },
+      "history": []
+    },
+    "target_action": {
+      "action": "call_tool",
+      "target": "get_security_logs",
+      "arguments": {
+        "source": "auth-service",
+        "time_window_minutes": 120,
+        "filters": {
+          "event_type": "login",
+          "anomaly_score_gte": 0.9
+        }
+      },
+      "final_answer": null,
+      "reason": "We need to gather the suspicious login events before clustering them into potential incidents."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "log_analyst",
+          "role": "Analyzes security logs for suspicious patterns and clusters events.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "incident_coordinator",
+          "role": "Proposes incident response steps and owner assignments.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "status_reporter",
+          "role": "Writes short status updates for stakeholders during incidents.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews communication and plans for clarity and completeness.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Help triage a potential security incident from unusual login patterns.",
+      "status": "in_progress",
+      "step": 3,
+      "max_steps": 7,
+      "context": {
+        "service": "auth-service",
+        "environment": "production"
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_security_logs",
+          "arguments": {
+            "source": "auth-service",
+            "time_window_minutes": 120,
+            "filters": {
+              "event_type": "login",
+              "anomaly_score_gte": 0.9
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_security_logs",
+          "content": "Batch of high-anomaly login events including user IDs, IPs, geo information, and device fingerprints."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "log_analyst",
+      "arguments": {
+        "logs_source": "get_security_logs",
+        "analysis_goal": "Identify distinct incident candidates and determine whether they look like false positives or require escalation."
+      },
+      "final_answer": null,
+      "reason": "We now have raw suspicious events and need the log_analyst to cluster them and assess severity."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "log_analyst",
+          "role": "Analyzes security logs for suspicious patterns and clusters events.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "incident_coordinator",
+          "role": "Proposes incident response steps and owner assignments.",
+          "cost": "high",
+          "latency": "high"
+        },
+        {
+          "name": "status_reporter",
+          "role": "Writes short status updates for stakeholders during incidents.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews communication and plans for clarity and completeness.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Help triage a potential security incident from unusual login patterns.",
+      "status": "in_progress",
+      "step": 7,
+      "max_steps": 7,
+      "context": {
+        "service": "auth-service",
+        "environment": "production"
+      },
+      "history": [
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_security_logs",
+          "arguments": {
+            "source": "auth-service",
+            "time_window_minutes": 120,
+            "filters": {
+              "event_type": "login",
+              "anomaly_score_gte": 0.9
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_security_logs",
+          "content": "Batch of high-anomaly login events including user IDs, IPs, geo information, and device fingerprints."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "log_analyst",
+          "arguments": {
+            "logs_source": "get_security_logs",
+            "analysis_goal": "Identify distinct incident candidates and determine whether they look like false positives or require escalation."
+          }
+        },
+        {
+          "type": "result",
+          "from": "log_analyst",
+          "content": "Grouped events into two likely incidents affecting a handful of users with elevated risk scores."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "incident_coordinator",
+          "arguments": {
+            "task_description": "Propose immediate mitigations, owner assignments, and next investigation steps for the identified incidents.",
+            "inputs": {
+              "incident_count": 2,
+              "service": "auth-service"
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "incident_coordinator",
+          "content": "Mitigation plan including temporary MFA enforcement on affected accounts and follow-up investigation tasks with owners."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "status_reporter",
+          "arguments": {
+            "task_description": "Draft a short Slack update for oncall and security leadership summarizing the situation and mitigations.",
+            "audience": "internal_stakeholders"
+          }
+        },
+        {
+          "type": "result",
+          "from": "status_reporter",
+          "content": "Draft incident update summarizing scope, impact, and current mitigation steps."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "critic",
+          "arguments": {
+            "review_target": "status_reporter",
+            "criteria": [
+              "clarity",
+              "completeness",
+              "tone"
+            ],
+            "focus": "Ensure the update is understandable, non-alarming, and mentions concrete next steps."
+          }
+        },
+        {
+          "type": "result",
+          "from": "critic",
+          "content": "Minor wording edits and confirmation that the status update and mitigation plan are clear."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "finish",
+      "target": null,
+      "arguments": {},
+      "final_answer": "Return the mitigation plan from the incident_coordinator and the refined status update from the status_reporter, noting that both were reviewed by the critic.",
+      "reason": "We collected suspicious events, analyzed them, proposed mitigations, and prepared clear communication for stakeholders."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "user_researcher",
+          "role": "Synthesizes user feedback and usage patterns into problem statements and user stories.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "product_manager",
+          "role": "Defines scope, success metrics, and release phases for new features.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "doc_writer",
+          "role": "Transforms structured notes into a polished PRD.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews product docs for clarity, risk coverage, and alignment with goals.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Create a product requirements document (PRD) for a new 'Focus Mode' feature in the collaboration app.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 9,
+      "context": {
+        "product": "collaboration_app",
+        "feature": "focus_mode",
+        "audience": "product_engineering"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We want a Focus Mode that helps users reduce distractions in the collaboration app, but we don't know exactly how it should work yet."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_tool",
+      "target": "search_feedback",
+      "arguments": {
+        "source": "zendesk_and_app_reviews",
+        "filters": {
+          "product": "collaboration_app",
+          "keywords": [
+            "notifications",
+            "distraction",
+            "focus"
+          ]
+        },
+        "time_window_days": 90
+      },
+      "final_answer": null,
+      "reason": "We should first collect qualitative feedback about distractions and notifications to understand user pain points for Focus Mode."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "user_researcher",
+          "role": "Synthesizes user feedback and usage patterns into problem statements and user stories.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "product_manager",
+          "role": "Defines scope, success metrics, and release phases for new features.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "doc_writer",
+          "role": "Transforms structured notes into a polished PRD.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews product docs for clarity, risk coverage, and alignment with goals.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Create a product requirements document (PRD) for a new 'Focus Mode' feature in the collaboration app.",
+      "status": "in_progress",
+      "step": 3,
+      "max_steps": 9,
+      "context": {
+        "product": "collaboration_app",
+        "feature": "focus_mode",
+        "audience": "product_engineering"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We want a Focus Mode that helps users reduce distractions in the collaboration app, but we don't know exactly how it should work yet."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "search_feedback",
+          "arguments": {
+            "source": "zendesk_and_app_reviews",
+            "filters": {
+              "product": "collaboration_app",
+              "keywords": [
+                "notifications",
+                "distraction",
+                "focus"
+              ]
+            },
+            "time_window_days": 90
+          }
+        },
+        {
+          "type": "result",
+          "from": "search_feedback",
+          "content": "Clustered user feedback about notification overload, constant pings, and desire for quiet time blocks."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_tool",
+      "target": "fetch_usage_stats",
+      "arguments": {
+        "metric_set": "notification_events",
+        "product": "collaboration_app",
+        "time_window_days": 30
+      },
+      "final_answer": null,
+      "reason": "We have qualitative feedback, but we should also understand notification volume and patterns quantitatively."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "user_researcher",
+          "role": "Synthesizes user feedback and usage patterns into problem statements and user stories.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "product_manager",
+          "role": "Defines scope, success metrics, and release phases for new features.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "doc_writer",
+          "role": "Transforms structured notes into a polished PRD.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews product docs for clarity, risk coverage, and alignment with goals.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Create a product requirements document (PRD) for a new 'Focus Mode' feature in the collaboration app.",
+      "status": "in_progress",
+      "step": 5,
+      "max_steps": 9,
+      "context": {
+        "product": "collaboration_app",
+        "feature": "focus_mode",
+        "audience": "product_engineering"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We want a Focus Mode that helps users reduce distractions in the collaboration app, but we don't know exactly how it should work yet."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "search_feedback",
+          "arguments": {
+            "source": "zendesk_and_app_reviews",
+            "filters": {
+              "product": "collaboration_app",
+              "keywords": [
+                "notifications",
+                "distraction",
+                "focus"
+              ]
+            },
+            "time_window_days": 90
+          }
+        },
+        {
+          "type": "result",
+          "from": "search_feedback",
+          "content": "Clustered user feedback about notification overload, constant pings, and desire for quiet time blocks."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "fetch_usage_stats",
+          "arguments": {
+            "metric_set": "notification_events",
+            "product": "collaboration_app",
+            "time_window_days": 30
+          }
+        },
+        {
+          "type": "result",
+          "from": "fetch_usage_stats",
+          "content": "Time-series data showing notification spikes during working hours and heavy usage of chat channels."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "user_researcher",
+      "arguments": {
+        "feedback_source": "search_feedback",
+        "usage_stats_source": "fetch_usage_stats",
+        "analysis_goal": "Identify the top 3-5 user problems Focus Mode should solve and key user segments."
+      },
+      "final_answer": null,
+      "reason": "The user_researcher should synthesize qualitative and quantitative data into clear problem statements and personas."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "user_researcher",
+          "role": "Synthesizes user feedback and usage patterns into problem statements and user stories.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "product_manager",
+          "role": "Defines scope, success metrics, and release phases for new features.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "doc_writer",
+          "role": "Transforms structured notes into a polished PRD.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews product docs for clarity, risk coverage, and alignment with goals.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Create a product requirements document (PRD) for a new 'Focus Mode' feature in the collaboration app.",
+      "status": "in_progress",
+      "step": 7,
+      "max_steps": 9,
+      "context": {
+        "product": "collaboration_app",
+        "feature": "focus_mode",
+        "audience": "product_engineering"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We want a Focus Mode that helps users reduce distractions in the collaboration app, but we don't know exactly how it should work yet."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "search_feedback",
+          "arguments": {
+            "source": "zendesk_and_app_reviews",
+            "filters": {
+              "product": "collaboration_app",
+              "keywords": [
+                "notifications",
+                "distraction",
+                "focus"
+              ]
+            },
+            "time_window_days": 90
+          }
+        },
+        {
+          "type": "result",
+          "from": "search_feedback",
+          "content": "Clustered user feedback about notification overload, constant pings, and desire for quiet time blocks."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "fetch_usage_stats",
+          "arguments": {
+            "metric_set": "notification_events",
+            "product": "collaboration_app",
+            "time_window_days": 30
+          }
+        },
+        {
+          "type": "result",
+          "from": "fetch_usage_stats",
+          "content": "Time-series data showing notification spikes during working hours and heavy usage of chat channels."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "user_researcher",
+          "arguments": {
+            "feedback_source": "search_feedback",
+            "usage_stats_source": "fetch_usage_stats",
+            "analysis_goal": "Identify the top 3-5 user problems Focus Mode should solve and key user segments."
+          }
+        },
+        {
+          "type": "result",
+          "from": "user_researcher",
+          "content": "Synthesized user problems and personas, highlighting deep-work oriented users and managers who need scheduled quiet hours."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "product_manager",
+      "arguments": {
+        "inputs": {
+          "user_insights_source": "user_researcher",
+          "business_goals": [
+            "increase_time_in_app",
+            "improve_task_completion_rate"
+          ]
+        },
+        "output_format": "bullet_outline",
+        "timebox": "MVP_plus_follow_ups"
+      },
+      "final_answer": null,
+      "reason": "The product_manager should translate user insights into a scoped MVP with clear goals, non-goals, and success metrics."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "user_researcher",
+          "role": "Synthesizes user feedback and usage patterns into problem statements and user stories.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "product_manager",
+          "role": "Defines scope, success metrics, and release phases for new features.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "doc_writer",
+          "role": "Transforms structured notes into a polished PRD.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews product docs for clarity, risk coverage, and alignment with goals.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Create a product requirements document (PRD) for a new 'Focus Mode' feature in the collaboration app.",
+      "status": "in_progress",
+      "step": 9,
+      "max_steps": 9,
+      "context": {
+        "product": "collaboration_app",
+        "feature": "focus_mode",
+        "audience": "product_engineering"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We want a Focus Mode that helps users reduce distractions in the collaboration app, but we don't know exactly how it should work yet."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "search_feedback",
+          "arguments": {
+            "source": "zendesk_and_app_reviews",
+            "filters": {
+              "product": "collaboration_app",
+              "keywords": [
+                "notifications",
+                "distraction",
+                "focus"
+              ]
+            },
+            "time_window_days": 90
+          }
+        },
+        {
+          "type": "result",
+          "from": "search_feedback",
+          "content": "Clustered user feedback about notification overload, constant pings, and desire for quiet time blocks."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "fetch_usage_stats",
+          "arguments": {
+            "metric_set": "notification_events",
+            "product": "collaboration_app",
+            "time_window_days": 30
+          }
+        },
+        {
+          "type": "result",
+          "from": "fetch_usage_stats",
+          "content": "Time-series data showing notification spikes during working hours and heavy usage of chat channels."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "user_researcher",
+          "arguments": {
+            "feedback_source": "search_feedback",
+            "usage_stats_source": "fetch_usage_stats",
+            "analysis_goal": "Identify the top 3-5 user problems Focus Mode should solve and key user segments."
+          }
+        },
+        {
+          "type": "result",
+          "from": "user_researcher",
+          "content": "Synthesized user problems and personas, highlighting deep-work oriented users and managers who need scheduled quiet hours."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "product_manager",
+          "arguments": {
+            "inputs": {
+              "user_insights_source": "user_researcher",
+              "business_goals": [
+                "increase_time_in_app",
+                "improve_task_completion_rate"
+              ]
+            },
+            "output_format": "bullet_outline",
+            "timebox": "MVP_plus_follow_ups"
+          }
+        },
+        {
+          "type": "result",
+          "from": "product_manager",
+          "content": "Structured PRD outline with goals, non-goals, success metrics, and phased rollout for Focus Mode."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "doc_writer",
+          "arguments": {
+            "task_description": "Turn the PRD outline and research notes into a full PRD document.",
+            "audience": "product_engineering"
+          }
+        },
+        {
+          "type": "result",
+          "from": "doc_writer",
+          "content": "Drafted PRD with background, problems, personas, requirements, and rollout plan."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "critic",
+          "arguments": {
+            "review_target": "doc_writer",
+            "criteria": [
+              "clarity",
+              "scope",
+              "risk_coverage"
+            ],
+            "focus": "Ensure the PRD clearly states assumptions, open questions, and risks."
+          }
+        },
+        {
+          "type": "result",
+          "from": "critic",
+          "content": "Minor wording suggestions and confirmation that the PRD is ready to share with stakeholders."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "finish",
+      "target": null,
+      "arguments": {},
+      "final_answer": "Return the final Focus Mode PRD from the doc_writer along with the critic's confirmation that it is ready for stakeholder review.",
+      "reason": "Research, scoping, drafting, and review steps are complete, so the PRD can be handed off."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "log_analyst",
+          "role": "Reads logs and metrics to identify timelines and probable root causes.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "incident_scribe",
+          "role": "Drafts clear incident timelines and postmortem documents.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "action_owner_planner",
+          "role": "Organizes follow-up actions, owners, and due dates.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Checks postmortems for completeness, blameless tone, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Prepare a deployment postmortem for a failed payments-service rollout on 2025-02-03.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 9,
+      "context": {
+        "service": "payments-service",
+        "environment": "production",
+        "incident_id": "INC-2471"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We had a failed payments-service rollout on 2025-02-03 and need a proper postmortem."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_tool",
+      "target": "get_incident_timeline",
+      "arguments": {
+        "incident_id": "INC-2471",
+        "include_changes": true
+      },
+      "final_answer": null,
+      "reason": "We need the authoritative incident timeline and change events before drafting a postmortem."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "log_analyst",
+          "role": "Reads logs and metrics to identify timelines and probable root causes.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "incident_scribe",
+          "role": "Drafts clear incident timelines and postmortem documents.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "action_owner_planner",
+          "role": "Organizes follow-up actions, owners, and due dates.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Checks postmortems for completeness, blameless tone, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Prepare a deployment postmortem for a failed payments-service rollout on 2025-02-03.",
+      "status": "in_progress",
+      "step": 3,
+      "max_steps": 9,
+      "context": {
+        "service": "payments-service",
+        "environment": "production",
+        "incident_id": "INC-2471"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We had a failed payments-service rollout on 2025-02-03 and need a proper postmortem."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_incident_timeline",
+          "arguments": {
+            "incident_id": "INC-2471",
+            "include_changes": true
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_incident_timeline",
+          "content": "Incident timeline with deployment start, errors, rollback, and recovery timestamps."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_tool",
+      "target": "get_logs",
+      "arguments": {
+        "service": "payments-service",
+        "time_window_minutes": 180,
+        "filters": {
+          "level": [
+            "error",
+            "warning"
+          ],
+          "deployment_id": "deploy-2025-02-03"
+        }
+      },
+      "final_answer": null,
+      "reason": "We have the timeline but need logs from the failed deployment window to analyze the technical root cause."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "log_analyst",
+          "role": "Reads logs and metrics to identify timelines and probable root causes.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "incident_scribe",
+          "role": "Drafts clear incident timelines and postmortem documents.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "action_owner_planner",
+          "role": "Organizes follow-up actions, owners, and due dates.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Checks postmortems for completeness, blameless tone, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Prepare a deployment postmortem for a failed payments-service rollout on 2025-02-03.",
+      "status": "in_progress",
+      "step": 5,
+      "max_steps": 9,
+      "context": {
+        "service": "payments-service",
+        "environment": "production",
+        "incident_id": "INC-2471"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We had a failed payments-service rollout on 2025-02-03 and need a proper postmortem."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_incident_timeline",
+          "arguments": {
+            "incident_id": "INC-2471",
+            "include_changes": true
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_incident_timeline",
+          "content": "Incident timeline with deployment start, errors, rollback, and recovery timestamps."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_logs",
+          "arguments": {
+            "service": "payments-service",
+            "time_window_minutes": 180,
+            "filters": {
+              "level": [
+                "error",
+                "warning"
+              ],
+              "deployment_id": "deploy-2025-02-03"
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_logs",
+          "content": "Application and infrastructure logs for payments-service around the failed deployment window."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "log_analyst",
+      "arguments": {
+        "timeline_source": "get_incident_timeline",
+        "logs_source": "get_logs",
+        "analysis_goal": "Identify the most likely root cause and confirm user and transaction impact."
+      },
+      "final_answer": null,
+      "reason": "The log_analyst should interpret logs and timeline to propose a concise root cause summary and blast radius."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "log_analyst",
+          "role": "Reads logs and metrics to identify timelines and probable root causes.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "incident_scribe",
+          "role": "Drafts clear incident timelines and postmortem documents.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "action_owner_planner",
+          "role": "Organizes follow-up actions, owners, and due dates.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Checks postmortems for completeness, blameless tone, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Prepare a deployment postmortem for a failed payments-service rollout on 2025-02-03.",
+      "status": "in_progress",
+      "step": 7,
+      "max_steps": 9,
+      "context": {
+        "service": "payments-service",
+        "environment": "production",
+        "incident_id": "INC-2471"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We had a failed payments-service rollout on 2025-02-03 and need a proper postmortem."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_incident_timeline",
+          "arguments": {
+            "incident_id": "INC-2471",
+            "include_changes": true
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_incident_timeline",
+          "content": "Incident timeline with deployment start, errors, rollback, and recovery timestamps."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_logs",
+          "arguments": {
+            "service": "payments-service",
+            "time_window_minutes": 180,
+            "filters": {
+              "level": [
+                "error",
+                "warning"
+              ],
+              "deployment_id": "deploy-2025-02-03"
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_logs",
+          "content": "Application and infrastructure logs for payments-service around the failed deployment window."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "log_analyst",
+          "arguments": {
+            "timeline_source": "get_incident_timeline",
+            "logs_source": "get_logs",
+            "analysis_goal": "Identify the most likely root cause and confirm user and transaction impact."
+          }
+        },
+        {
+          "type": "result",
+          "from": "log_analyst",
+          "content": "Root cause summary indicating a misconfigured database connection string causing increased error rates and automatic rollback, with impact limited to a subset of checkout attempts."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "incident_scribe",
+      "arguments": {
+        "task_description": "Draft a postmortem document for INC-2471 using the incident timeline and log analysis.",
+        "sections": [
+          "Summary",
+          "Impact",
+          "Timeline",
+          "Root Cause",
+          "Mitigations",
+          "Follow-up Actions"
+        ],
+        "audience": "engineering_and_leadership"
+      },
+      "final_answer": null,
+      "reason": "The incident_scribe should produce a structured, blameless postmortem foundation before assigning follow-up actions."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "log_analyst",
+          "role": "Reads logs and metrics to identify timelines and probable root causes.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "incident_scribe",
+          "role": "Drafts clear incident timelines and postmortem documents.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "action_owner_planner",
+          "role": "Organizes follow-up actions, owners, and due dates.",
+          "cost": "low",
+          "latency": "low"
+        },
+        {
+          "name": "critic",
+          "role": "Checks postmortems for completeness, blameless tone, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Prepare a deployment postmortem for a failed payments-service rollout on 2025-02-03.",
+      "status": "in_progress",
+      "step": 9,
+      "max_steps": 9,
+      "context": {
+        "service": "payments-service",
+        "environment": "production",
+        "incident_id": "INC-2471"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We had a failed payments-service rollout on 2025-02-03 and need a proper postmortem."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_incident_timeline",
+          "arguments": {
+            "incident_id": "INC-2471",
+            "include_changes": true
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_incident_timeline",
+          "content": "Incident timeline with deployment start, errors, rollback, and recovery timestamps."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_logs",
+          "arguments": {
+            "service": "payments-service",
+            "time_window_minutes": 180,
+            "filters": {
+              "level": [
+                "error",
+                "warning"
+              ],
+              "deployment_id": "deploy-2025-02-03"
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_logs",
+          "content": "Application and infrastructure logs for payments-service around the failed deployment window."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "log_analyst",
+          "arguments": {
+            "timeline_source": "get_incident_timeline",
+            "logs_source": "get_logs",
+            "analysis_goal": "Identify the most likely root cause and confirm user and transaction impact."
+          }
+        },
+        {
+          "type": "result",
+          "from": "log_analyst",
+          "content": "Root cause summary indicating a misconfigured database connection string causing increased error rates and automatic rollback, with impact limited to a subset of checkout attempts."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "incident_scribe",
+          "arguments": {
+            "task_description": "Draft a postmortem document for INC-2471 using the incident timeline and log analysis.",
+            "sections": [
+              "Summary",
+              "Impact",
+              "Timeline",
+              "Root Cause",
+              "Mitigations",
+              "Follow-up Actions"
+            ],
+            "audience": "engineering_and_leadership"
+          }
+        },
+        {
+          "type": "result",
+          "from": "incident_scribe",
+          "content": "Drafted postmortem with structured sections and a neutral, blameless tone."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "action_owner_planner",
+          "arguments": {
+            "task_description": "Create a list of follow-up actions from the postmortem and assign owners and target dates.",
+            "incident_id": "INC-2471"
+          }
+        },
+        {
+          "type": "result",
+          "from": "action_owner_planner",
+          "content": "Action item list with owners and due dates, including configuration validation, deployment guardrails, and pre-check improvements."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "critic",
+          "arguments": {
+            "review_target": "incident_scribe",
+            "criteria": [
+              "completeness",
+              "tone",
+              "actionability"
+            ],
+            "focus": "Ensure the postmortem clearly communicates impact and concrete follow-ups."
+          }
+        },
+        {
+          "type": "result",
+          "from": "critic",
+          "content": "Minor suggestions and confirmation that the postmortem and action list are ready to share."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "finish",
+      "target": null,
+      "arguments": {},
+      "final_answer": "Return the finalized postmortem from the incident_scribe and the action list from the action_owner_planner, noting the critic's approval.",
+      "reason": "Analysis, drafting, follow-up planning, and review are complete for incident INC-2471."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "hr_partner",
+          "role": "Ensures curricula align with company policies and HR requirements.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "sales_leader",
+          "role": "Defines skills, quotas, and expectations for new sales reps.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "curriculum_designer",
+          "role": "Turns requirements into a week-by-week onboarding plan with activities.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews curricula for realism, pacing, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Design a 4-week onboarding curriculum for new SMB sales reps.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 9,
+      "context": {
+        "department": "sales",
+        "segment": "SMB",
+        "duration_weeks": 4
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We need a structured 4-week onboarding plan for new SMB sales reps."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "ask_user",
+      "target": "user",
+      "arguments": {
+        "question": "Are the new SMB sales reps remote, in-office, or hybrid, and what tooling stack will they use (e.g., CRM, dialer, email)?"
+      },
+      "final_answer": null,
+      "reason": "We need basic context about work location and tooling to design a realistic onboarding plan."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "hr_partner",
+          "role": "Ensures curricula align with company policies and HR requirements.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "sales_leader",
+          "role": "Defines skills, quotas, and expectations for new sales reps.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "curriculum_designer",
+          "role": "Turns requirements into a week-by-week onboarding plan with activities.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews curricula for realism, pacing, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Design a 4-week onboarding curriculum for new SMB sales reps.",
+      "status": "in_progress",
+      "step": 3,
+      "max_steps": 9,
+      "context": {
+        "department": "sales",
+        "segment": "SMB",
+        "duration_weeks": 4
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We need a structured 4-week onboarding plan for new SMB sales reps."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "ask_user",
+          "target": "user",
+          "arguments": {
+            "question": "Are the new SMB sales reps remote, in-office, or hybrid, and what tooling stack will they use (e.g., CRM, dialer, email)?"
+          }
+        },
+        {
+          "type": "result",
+          "from": "user",
+          "content": "They are hybrid and will use Salesforce, Outreach, and Gmail."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_tool",
+      "target": "fetch_role_profiles",
+      "arguments": {
+        "department": "sales",
+        "segment": "SMB",
+        "level": "individual_contributor"
+      },
+      "final_answer": null,
+      "reason": "We should fetch the standardized role profiles to understand expected skills and responsibilities."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "hr_partner",
+          "role": "Ensures curricula align with company policies and HR requirements.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "sales_leader",
+          "role": "Defines skills, quotas, and expectations for new sales reps.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "curriculum_designer",
+          "role": "Turns requirements into a week-by-week onboarding plan with activities.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews curricula for realism, pacing, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Design a 4-week onboarding curriculum for new SMB sales reps.",
+      "status": "in_progress",
+      "step": 5,
+      "max_steps": 9,
+      "context": {
+        "department": "sales",
+        "segment": "SMB",
+        "duration_weeks": 4
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We need a structured 4-week onboarding plan for new SMB sales reps."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "ask_user",
+          "target": "user",
+          "arguments": {
+            "question": "Are the new SMB sales reps remote, in-office, or hybrid, and what tooling stack will they use (e.g., CRM, dialer, email)?"
+          }
+        },
+        {
+          "type": "result",
+          "from": "user",
+          "content": "They are hybrid and will use Salesforce, Outreach, and Gmail."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "fetch_role_profiles",
+          "arguments": {
+            "department": "sales",
+            "segment": "SMB",
+            "level": "individual_contributor"
+          }
+        },
+        {
+          "type": "result",
+          "from": "fetch_role_profiles",
+          "content": "Role profile describing SMB sales responsibilities, quota expectations, and core competencies."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "sales_leader",
+      "arguments": {
+        "task_description": "Define the competency model and weekly outcomes for the first 4 weeks for SMB sales reps.",
+        "inputs": {
+          "role_profile_source": "fetch_role_profiles",
+          "tooling": [
+            "Salesforce",
+            "Outreach",
+            "Gmail"
+          ]
+        }
+      },
+      "final_answer": null,
+      "reason": "The sales_leader should translate role expectations into concrete skills and outcomes to drive the onboarding plan."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "hr_partner",
+          "role": "Ensures curricula align with company policies and HR requirements.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "sales_leader",
+          "role": "Defines skills, quotas, and expectations for new sales reps.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "curriculum_designer",
+          "role": "Turns requirements into a week-by-week onboarding plan with activities.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews curricula for realism, pacing, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Design a 4-week onboarding curriculum for new SMB sales reps.",
+      "status": "in_progress",
+      "step": 7,
+      "max_steps": 9,
+      "context": {
+        "department": "sales",
+        "segment": "SMB",
+        "duration_weeks": 4
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We need a structured 4-week onboarding plan for new SMB sales reps."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "ask_user",
+          "target": "user",
+          "arguments": {
+            "question": "Are the new SMB sales reps remote, in-office, or hybrid, and what tooling stack will they use (e.g., CRM, dialer, email)?"
+          }
+        },
+        {
+          "type": "result",
+          "from": "user",
+          "content": "They are hybrid and will use Salesforce, Outreach, and Gmail."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "fetch_role_profiles",
+          "arguments": {
+            "department": "sales",
+            "segment": "SMB",
+            "level": "individual_contributor"
+          }
+        },
+        {
+          "type": "result",
+          "from": "fetch_role_profiles",
+          "content": "Role profile describing SMB sales responsibilities, quota expectations, and core competencies."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "sales_leader",
+          "arguments": {
+            "task_description": "Define the competency model and weekly outcomes for the first 4 weeks for SMB sales reps.",
+            "inputs": {
+              "role_profile_source": "fetch_role_profiles",
+              "tooling": [
+                "Salesforce",
+                "Outreach",
+                "Gmail"
+              ]
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "sales_leader",
+          "content": "Competency model with weekly goals for discovery skills, product knowledge, and pipeline generation."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "hr_partner",
+      "arguments": {
+        "task_description": "Identify required HR, compliance, and policy training that must be included in the 4-week plan.",
+        "inputs": {
+          "role_profile_source": "fetch_role_profiles"
+        }
+      },
+      "final_answer": null,
+      "reason": "The hr_partner should ensure the plan includes mandatory HR and compliance topics before the curriculum is drafted."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "hr_partner",
+          "role": "Ensures curricula align with company policies and HR requirements.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "sales_leader",
+          "role": "Defines skills, quotas, and expectations for new sales reps.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "curriculum_designer",
+          "role": "Turns requirements into a week-by-week onboarding plan with activities.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews curricula for realism, pacing, and clarity.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Design a 4-week onboarding curriculum for new SMB sales reps.",
+      "status": "in_progress",
+      "step": 9,
+      "max_steps": 9,
+      "context": {
+        "department": "sales",
+        "segment": "SMB",
+        "duration_weeks": 4
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We need a structured 4-week onboarding plan for new SMB sales reps."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "ask_user",
+          "target": "user",
+          "arguments": {
+            "question": "Are the new SMB sales reps remote, in-office, or hybrid, and what tooling stack will they use (e.g., CRM, dialer, email)?"
+          }
+        },
+        {
+          "type": "result",
+          "from": "user",
+          "content": "They are hybrid and will use Salesforce, Outreach, and Gmail."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "fetch_role_profiles",
+          "arguments": {
+            "department": "sales",
+            "segment": "SMB",
+            "level": "individual_contributor"
+          }
+        },
+        {
+          "type": "result",
+          "from": "fetch_role_profiles",
+          "content": "Role profile describing SMB sales responsibilities, quota expectations, and core competencies."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "sales_leader",
+          "arguments": {
+            "task_description": "Define the competency model and weekly outcomes for the first 4 weeks for SMB sales reps.",
+            "inputs": {
+              "role_profile_source": "fetch_role_profiles",
+              "tooling": [
+                "Salesforce",
+                "Outreach",
+                "Gmail"
+              ]
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "sales_leader",
+          "content": "Competency model with weekly goals for discovery skills, product knowledge, and pipeline generation."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "hr_partner",
+          "arguments": {
+            "task_description": "Identify required HR, compliance, and policy training that must be included in the 4-week plan.",
+            "inputs": {
+              "role_profile_source": "fetch_role_profiles"
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "hr_partner",
+          "content": "List of HR, security, and compliance modules that must be completed in the first month."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "curriculum_designer",
+          "arguments": {
+            "task_description": "Create a 4-week onboarding curriculum with weekly themes and daily activities.",
+            "inputs": {
+              "competency_model_source": "sales_leader",
+              "compliance_requirements_source": "hr_partner"
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "curriculum_designer",
+          "content": "Week-by-week curriculum including shadowing, practice calls, tool training, and assessments."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "critic",
+          "arguments": {
+            "review_target": "curriculum_designer",
+            "criteria": [
+              "realism",
+              "pacing",
+              "clarity"
+            ],
+            "focus": "Ensure the plan is achievable for hybrid reps and touches all mandatory topics."
+          }
+        },
+        {
+          "type": "result",
+          "from": "critic",
+          "content": "Minor pacing adjustments and confirmation that the curriculum is balanced and clear."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "finish",
+      "target": null,
+      "arguments": {},
+      "final_answer": "Return the final 4-week SMB sales onboarding curriculum from the curriculum_designer with the critic's review summary.",
+      "reason": "Context gathering, expectations setting, curriculum design, and review are complete."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "data_analyst",
+          "role": "Summarizes current metric definitions and data quality constraints.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "ml_engineer",
+          "role": "Defines model-specific metrics and evaluation plans.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "observability_expert",
+          "role": "Designs dashboards, alerts, and SLOs for services.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews monitoring plans for coverage and noise risk.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Define metrics and monitoring plan for the new recommendations service.",
+      "status": "in_progress",
+      "step": 1,
+      "max_steps": 9,
+      "context": {
+        "service": "recommendation-engine",
+        "stage": "beta",
+        "audience": "ml_and_platform_teams"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We need a metrics and monitoring plan for the new recommendation-engine service before beta."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_tool",
+      "target": "get_existing_dashboards",
+      "arguments": {
+        "service": "recommendation-engine",
+        "include_related": true
+      },
+      "final_answer": null,
+      "reason": "We should first inspect any existing dashboards and metrics to avoid duplicating work and to identify gaps."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "data_analyst",
+          "role": "Summarizes current metric definitions and data quality constraints.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "ml_engineer",
+          "role": "Defines model-specific metrics and evaluation plans.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "observability_expert",
+          "role": "Designs dashboards, alerts, and SLOs for services.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews monitoring plans for coverage and noise risk.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Define metrics and monitoring plan for the new recommendations service.",
+      "status": "in_progress",
+      "step": 3,
+      "max_steps": 9,
+      "context": {
+        "service": "recommendation-engine",
+        "stage": "beta",
+        "audience": "ml_and_platform_teams"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We need a metrics and monitoring plan for the new recommendation-engine service before beta."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_existing_dashboards",
+          "arguments": {
+            "service": "recommendation-engine",
+            "include_related": true
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_existing_dashboards",
+          "content": "Existing dashboards with basic latency, error rate, and throughput metrics for the recommendations service."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "data_analyst",
+      "arguments": {
+        "dashboards_source": "get_existing_dashboards",
+        "analysis_goal": "Summarize existing metrics, identify gaps, and note any data quality issues."
+      },
+      "final_answer": null,
+      "reason": "The data_analyst should review current metrics to highlight what is missing for a robust monitoring plan."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "data_analyst",
+          "role": "Summarizes current metric definitions and data quality constraints.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "ml_engineer",
+          "role": "Defines model-specific metrics and evaluation plans.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "observability_expert",
+          "role": "Designs dashboards, alerts, and SLOs for services.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews monitoring plans for coverage and noise risk.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Define metrics and monitoring plan for the new recommendations service.",
+      "status": "in_progress",
+      "step": 5,
+      "max_steps": 9,
+      "context": {
+        "service": "recommendation-engine",
+        "stage": "beta",
+        "audience": "ml_and_platform_teams"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We need a metrics and monitoring plan for the new recommendation-engine service before beta."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_existing_dashboards",
+          "arguments": {
+            "service": "recommendation-engine",
+            "include_related": true
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_existing_dashboards",
+          "content": "Existing dashboards with basic latency, error rate, and throughput metrics for the recommendations service."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "data_analyst",
+          "arguments": {
+            "dashboards_source": "get_existing_dashboards",
+            "analysis_goal": "Summarize existing metrics, identify gaps, and note any data quality issues."
+          }
+        },
+        {
+          "type": "result",
+          "from": "data_analyst",
+          "content": "Summary noting missing business KPIs (CTR, conversion uplift) and limited visibility into input feature quality."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "ml_engineer",
+      "arguments": {
+        "task_description": "Define model-centric metrics (offline and online) for the recommendation-engine.",
+        "inputs": {
+          "business_goals": [
+            "increased_engagement",
+            "revenue_per_session"
+          ],
+          "constraints": [
+            "avoid_filter_bubbles",
+            "fairness_considerations"
+          ],
+          "gaps_source": "data_analyst"
+        }
+      },
+      "final_answer": null,
+      "reason": "The ml_engineer should specify model performance metrics and fairness constraints that monitoring must support."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "data_analyst",
+          "role": "Summarizes current metric definitions and data quality constraints.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "ml_engineer",
+          "role": "Defines model-specific metrics and evaluation plans.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "observability_expert",
+          "role": "Designs dashboards, alerts, and SLOs for services.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews monitoring plans for coverage and noise risk.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Define metrics and monitoring plan for the new recommendations service.",
+      "status": "in_progress",
+      "step": 7,
+      "max_steps": 9,
+      "context": {
+        "service": "recommendation-engine",
+        "stage": "beta",
+        "audience": "ml_and_platform_teams"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We need a metrics and monitoring plan for the new recommendation-engine service before beta."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_existing_dashboards",
+          "arguments": {
+            "service": "recommendation-engine",
+            "include_related": true
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_existing_dashboards",
+          "content": "Existing dashboards with basic latency, error rate, and throughput metrics for the recommendations service."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "data_analyst",
+          "arguments": {
+            "dashboards_source": "get_existing_dashboards",
+            "analysis_goal": "Summarize existing metrics, identify gaps, and note any data quality issues."
+          }
+        },
+        {
+          "type": "result",
+          "from": "data_analyst",
+          "content": "Summary noting missing business KPIs (CTR, conversion uplift) and limited visibility into input feature quality."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "ml_engineer",
+          "arguments": {
+            "task_description": "Define model-centric metrics (offline and online) for the recommendation-engine.",
+            "inputs": {
+              "business_goals": [
+                "increased_engagement",
+                "revenue_per_session"
+              ],
+              "constraints": [
+                "avoid_filter_bubbles",
+                "fairness_considerations"
+              ],
+              "gaps_source": "data_analyst"
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "ml_engineer",
+          "content": "Set of offline metrics (NDCG, recall) and online metrics (CTR uplift, session length) plus fairness slices by region."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "call_agent",
+      "target": "observability_expert",
+      "arguments": {
+        "task_description": "Design a monitoring plan including dashboards, alerts, and SLOs for recommendation-engine.",
+        "inputs": {
+          "service": "recommendation-engine",
+          "metrics_sources": [
+            "data_analyst",
+            "ml_engineer"
+          ]
+        }
+      },
+      "final_answer": null,
+      "reason": "The observability_expert should define concrete dashboards and alerts based on the chosen metrics."
+    }
+  },
+  {
+    "agent_registry": {
+      "agents": [
+        {
+          "name": "data_analyst",
+          "role": "Summarizes current metric definitions and data quality constraints.",
+          "cost": "medium",
+          "latency": "medium"
+        },
+        {
+          "name": "ml_engineer",
+          "role": "Defines model-specific metrics and evaluation plans.",
+          "cost": "high",
+          "latency": "medium"
+        },
+        {
+          "name": "observability_expert",
+          "role": "Designs dashboards, alerts, and SLOs for services.",
+          "cost": "medium",
+          "latency": "high"
+        },
+        {
+          "name": "critic",
+          "role": "Reviews monitoring plans for coverage and noise risk.",
+          "cost": "low",
+          "latency": "low"
+        }
+      ]
+    },
+    "state": {
+      "task": "Define metrics and monitoring plan for the new recommendations service.",
+      "status": "in_progress",
+      "step": 9,
+      "max_steps": 9,
+      "context": {
+        "service": "recommendation-engine",
+        "stage": "beta",
+        "audience": "ml_and_platform_teams"
+      },
+      "history": [
+        {
+          "type": "result",
+          "from": "user",
+          "content": "We need a metrics and monitoring plan for the new recommendation-engine service before beta."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_tool",
+          "target": "get_existing_dashboards",
+          "arguments": {
+            "service": "recommendation-engine",
+            "include_related": true
+          }
+        },
+        {
+          "type": "result",
+          "from": "get_existing_dashboards",
+          "content": "Existing dashboards with basic latency, error rate, and throughput metrics for the recommendations service."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "data_analyst",
+          "arguments": {
+            "dashboards_source": "get_existing_dashboards",
+            "analysis_goal": "Summarize existing metrics, identify gaps, and note any data quality issues."
+          }
+        },
+        {
+          "type": "result",
+          "from": "data_analyst",
+          "content": "Summary noting missing business KPIs (CTR, conversion uplift) and limited visibility into input feature quality."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "ml_engineer",
+          "arguments": {
+            "task_description": "Define model-centric metrics (offline and online) for the recommendation-engine.",
+            "inputs": {
+              "business_goals": [
+                "increased_engagement",
+                "revenue_per_session"
+              ],
+              "constraints": [
+                "avoid_filter_bubbles",
+                "fairness_considerations"
+              ],
+              "gaps_source": "data_analyst"
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "ml_engineer",
+          "content": "Set of offline metrics (NDCG, recall) and online metrics (CTR uplift, session length) plus fairness slices by region."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "observability_expert",
+          "arguments": {
+            "task_description": "Design a monitoring plan including dashboards, alerts, and SLOs for recommendation-engine.",
+            "inputs": {
+              "service": "recommendation-engine",
+              "metrics_sources": [
+                "data_analyst",
+                "ml_engineer"
+              ]
+            }
+          }
+        },
+        {
+          "type": "result",
+          "from": "observability_expert",
+          "content": "Draft monitoring plan with SLOs for latency and CTR, alert policies, and dashboard layout for model and system health."
+        },
+        {
+          "type": "action",
+          "by": "orchestrator",
+          "action": "call_agent",
+          "target": "critic",
+          "arguments": {
+            "review_target": "observability_expert",
+            "criteria": [
+              "coverage",
+              "noise_risk",
+              "clarity"
+            ],
+            "focus": "Ensure monitoring covers business, model, and system metrics without excessive alert noise."
+          }
+        },
+        {
+          "type": "result",
+          "from": "critic",
+          "content": "Minor suggestions on alert thresholds and confirmation that the monitoring plan is balanced."
+        }
+      ]
+    },
+    "target_action": {
+      "action": "finish",
+      "target": null,
+      "arguments": {},
+      "final_answer": "Return the finalized monitoring plan from the observability_expert along with the critic's feedback for the recommendation-engine beta.",
+      "reason": "Existing metrics were reviewed, new KPIs defined, a monitoring plan drafted, and its coverage validated."
+    }
+  }
+]
